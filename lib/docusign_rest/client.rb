@@ -220,6 +220,7 @@ module DocusignRest
           name:     signer[:name],
           email:    signer[:email],
           roleName: signer[:role_name],
+          recipientId: "#{index + 1}",
           tabs: {
             textTabs:     get_signer_tabs(signer[:text_tabs]),
             checkboxTabs: get_signer_tabs(signer[:checkbox_tabs]),
