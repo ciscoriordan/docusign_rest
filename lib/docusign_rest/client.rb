@@ -235,6 +235,7 @@ module DocusignRest
 
         template_role['clientUserId'] = (signer[:client_id] || signer[:email]).to_s if signer[:embedded] == true
         template_roles << template_role
+        puts "template_roles: #{template_roles.inspect}"
       end
       template_roles
     end
@@ -735,6 +736,8 @@ module DocusignRest
         templateRoles:      get_template_roles(options[:signers]),
         customFields:       options[:custom_fields]
       }.to_json
+
+      puts "post_body: #{post_body.inspect}"
 
       uri = build_uri("/accounts/#{acct_id}/envelopes")
 
