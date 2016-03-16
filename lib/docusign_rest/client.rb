@@ -234,7 +234,7 @@ module DocusignRest
           template_role[:emailNotification] = signer[:email_notification]
         end
 
-        template_role['clientUserId'] = (signer[:client_id] || signer[:email]).to_s if signer[:embedded] == true
+        template_role['clientUserId'] = "#{index + 1}" if signer[:embedded] == true
         template_roles << template_role
         puts "template_roles: #{template_roles.inspect}"
       end
