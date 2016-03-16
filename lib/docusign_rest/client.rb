@@ -734,7 +734,9 @@ module DocusignRest
         emailSubject:       options[:email][:subject],
         templateId:         options[:template_id],
         eventNotification:  get_event_notification(options[:event_notification]),
-        templateRoles:      get_template_roles(options[:signers]),
+        recipients: {
+          signers: get_template_roles(options[:signers])
+        },
         customFields:       options[:custom_fields]
       }.to_json
 
